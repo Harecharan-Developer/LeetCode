@@ -25,7 +25,8 @@ class Solution:
 
         for distance, i, j in edges:
             if find(i) != find(j):
-                union(i, j)
+                union(i, j) #to take the union
+                
                 min_cost += distance
 
         return min_cost
