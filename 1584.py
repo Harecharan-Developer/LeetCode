@@ -1,5 +1,5 @@
 class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+    def minCostConnectPoints(self, points):
         def find(x):
             if parent[x] == x:
                 return x
