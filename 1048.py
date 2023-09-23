@@ -16,8 +16,9 @@
 # works only for test cases. tle 
 
 class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
+    def longestStrChain(self,words):
         words = sorted(words, key=len)
+        
         max_chain_length = 1
 
         for i in range(len(words)):
