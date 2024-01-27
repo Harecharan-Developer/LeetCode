@@ -8,6 +8,9 @@
 # Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
 
 
+''' 
+Only 34 testcases Passed need to update
+'''
 
 
 class my_solution:
@@ -53,7 +56,7 @@ class my_solution:
                         count += 1
                 elif is_corner(x, y):
                     if m==1 and n!=1:
-                        count += 3
+                        count += 3  
                     elif m!=1 and n==1:
                         count += 3
                     elif m==1 and n==1:
