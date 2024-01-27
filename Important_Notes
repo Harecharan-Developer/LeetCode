@@ -1,0 +1,12 @@
+1)LRU CACHE 
+
+        The lru_cache decorator from Python's functools module is a very useful feature for optimizing performance, particularly in recursive functions like the one in your code. "LRU" stands for "Least Recently Used." Here's what lru_cache does:
+
+        Caching: lru_cache stores the results of function calls, using the function's arguments as the key. If the function is later called with the same arguments, it doesn't compute the result again but instead retrieves it from the cache. This is especially beneficial in recursive functions where the same function with the same parameters is called multiple times.
+
+        Efficiency: Without caching, recursive functions can become inefficient for large inputs as they repeatedly calculate the same values. By caching results, lru_cache drastically reduces the number of computations, leading to significant performance improvements.
+
+        LRU Strategy: The "Least Recently Used" part means that the cache has a fixed size (you can set this size; the default is 128). If the cache exceeds this size, the least recently used items are discarded to make room for new ones. This strategy is effective in managing memory usage, especially in scenarios where some values are accessed more frequently.
+
+        Decorator Syntax: @lru_cache(None) or @lru_cache(maxsize=None) means that the cache has no limit on its size. All results are stored unless explicitly cleared. In your code, @lru_cache(None) is used, ensuring that every unique call to rec across all recursive calls is cached, which is very helpful in dynamic programming scenarios.
+

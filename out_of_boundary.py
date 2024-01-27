@@ -70,3 +70,23 @@ my_solution = my_solution()
 print(my_solution.findPaths(2, 2, 2, 0, 0))  # Output: 6
 print(my_solution.findPaths(1, 3, 3, 0, 1))    # Output: 12
 
+from functools import lru_cache
+class Solution:
+    def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startColumn: int) -> int:
+        @lru_cache(None)
+        def rec(i,j,moves):
+            if i>=m or j>=n or i<0 or j<0:
+                return 1
+            elif moves == 0:
+                return 0
+            out = rec(i+1,j,moves-1)
+            out += rec(i-1,j,moves-1)
+            out += rec(i,j+1,moves-1)
+            out += rec(i,j-1,moves-1)
+            return out
+        return rec(startRow,startColumn,maxMove) % (10**9+7)
+
+# Test the my_solution
+solution = Solution()
+print(solution.findPaths(2, 2, 2, 0, 0))  # Output: 6
+print(solution.findPaths(1, 3, 3, 0, 1))    # Output: 12
