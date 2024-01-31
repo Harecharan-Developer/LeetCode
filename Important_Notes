@@ -10,3 +10,27 @@
 
         Decorator Syntax: @lru_cache(None) or @lru_cache(maxsize=None) means that the cache has no limit on its size. All results are stored unless explicitly cleared. In your code, @lru_cache(None) is used, ensuring that every unique call to rec across all recursive calls is cached, which is very helpful in dynamic programming scenarios.
 
+.REVERSE() AND REVERSED()
+.reverse() and reversed() are both used to reverse the order of elements in a sequence (like a list or string) in Python. However, they have some differences:
+
+.reverse(): This is a method that directly modifies the list it is called on. It does not return a new list, instead it reverses the elements of the original list in-place. Therefore, it doesn't work with immutable sequences like strings or tuples. If you try to use .reverse() on an immutable sequence, you'll get an AttributeError because these types do not have a .reverse() method.
+
+my_list = [1, 2, 3]
+my_list.reverse()
+print(my_list)  # Output: [3, 2, 1]
+
+my_string = "Hello"
+my_string.reverse()  # Raises AttributeError: 'str' object has no attribute 'reverse'
+
+reversed(): This is a built-in Python function that works with any iterable, not just lists. It returns a reverse iterator, which you can convert to a list or tuple if needed. It does not modify the original sequence.
+
+my_list = [1, 2, 3]
+new_list = list(reversed(my_list))
+print(new_list)  # Output: [3, 2, 1]
+
+my_string = "Hello"
+new_string = "".join(reversed(my_string))
+print(new_string)  # Output: "olleH"
+Remember, reversed() won't work with non-iterable objects. If you try to use reversed() on a non-iterable, you'll get a TypeError stating that the object is not reversible.
+
+
