@@ -34,3 +34,15 @@ print(new_string)  # Output: "olleH"
 Remember, reversed() won't work with non-iterable objects. If you try to use reversed() on a non-iterable, you'll get a TypeError stating that the object is not reversible.
 
 
+function  count :
+However, it's important to note that the count() 
+'function in Python does not count overlapping substrings.
+ In the example above, the two 'aaa' substrings it counts
+  are non-overlapping ('aaa' and 'aaa'). If you want to 
+  count overlapping substrings, you would need to implement a different approach,
+   such as using a loop to iterate over the string and check for the substring at each position.
+
+or if you want to count all the overlapping , for eg. if u want to know all occurences of repeated a substring with 
+length greater than 3, we can do count(aaa) + count(aaaa) + count (aaaaa) 
+
+cuz if u need count(aaa aaa) i.e 6 a's then 6 a's is 3a +3a , 7a's is 3a + 4a ;8 a's is 4a+4a and so on.
