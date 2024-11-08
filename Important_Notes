@@ -46,3 +46,79 @@ or if you want to count all the overlapping , for eg. if u want to know all occu
 length greater than 3, we can do count(aaa) + count(aaaa) + count (aaaaa) 
 
 cuz if u need count(aaa aaa) i.e 6 a's then 6 a's is 3a +3a , 7a's is 3a + 4a ;8 a's is 4a+4a and so on.
+
+
+Sorting:---- refer sortthepeople.py
+if you want to sort based on a particular order:
+        1) make a dictionary with the order of the elements
+        sort the dict 
+        use the key parameter in the sort function to sort based on the order of the elements in the dictionary.
+
+        2) create tuples and use sort with lambda function as the second tuplet of the tuple
+
+Boyer Moore Voting algo
+The algorithm works under the assumption that the majority element appears more than n/2 times in the array. It keeps track of a candidate for the majority element and a count
+refer boyer_moore_voting.py
+
+
+SLICING:
+str="1234567890"
+str[1:5] gives 2345 so we remember it as [ ) includes excludes we include the first number to the coreesp index and exclude 
+the last index number in slicing 
+
+A nested function cannot access variables in the enclosing function unless they are declared as nonlocal (for modifying) or global (for global scope). Here's a more detailed explanation:
+
+Nonlocal: This keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function. It allows you to modify a variable in the enclosing (non-global) scope.
+
+Global: This keyword is used to declare a variable as global, meaning it can be accessed and modified throughout the entire module.
+
+def outer_function():
+    x = "Hello"
+    
+    def inner_function():
+        nonlocal x
+        x = "Hi"
+        print("Inner:", x)
+    
+    inner_function()
+    print("Outer:", x)
+
+outer_function()
+output:
+Inner: Hi
+Outer: Hi
+x = "Hello"
+
+def outer_function():
+    
+    def inner_function():
+        global x
+        x = "Hi"
+        print("Inner:", x)
+    
+    inner_function()
+    print("Outer:", x)
+
+outer_function()
+print("Global:", x)
+
+
+Inner: Hi
+Outer: Hi
+Global: Hi
+
+
+HOW TO FLATTEN A LIST
+matrix = [[9, 3, 8, 3], [4, 5, 2, 8], [6, 4, 3, 1], [1, 0, 4, 5]]
+flat_list = sum(matrix, [])
+print(flat_list)
+# Output: [9, 3, 8, 3, 4, 5, 2, 8, 6, 4, 3, 1, 1, 0, 4, 5]
+
+
+
+HOW TO MAKE TWO LISTS OF EQUAL LENGTH BY PADDING WITH ZEROS
+If you have two lists of different lengths and you want to make them equal in length by padding the shorter list with zeros, you can use the zip_longest function from the itertools module. Here's an example:
+from itertools import zip_longest
+
+def pad_lists(list1, list2):
+    return list(zip_longest(list1, list2, fillvalue=0))
