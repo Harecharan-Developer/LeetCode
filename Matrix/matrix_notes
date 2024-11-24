@@ -1,0 +1,16 @@
+*matrix means matrix is transposed but we cannot access it directly 
+if i want to go thru columns i do 
+for row in matrix:
+    row[0]=..  ill go thru all elements in first column
+
+for i in matrix[0]:
+    for row in matrix:
+        print(row[i])
+
+ill got thru column wise each column at a time
+
+matrix=[[1,2,3],[4,5,6],[7,8,9]]
+columns = list(zip(*matrix))
+above line gives output as list of tuples where each tuple is a column
+print(columns) #[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
