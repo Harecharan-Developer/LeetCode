@@ -14,3 +14,26 @@ columns = list(zip(*matrix))
 above line gives output as list of tuples where each tuple is a column
 print(columns) #[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
 
+declare a 2D array in Python,
+Using List Comprehension (Most Common):
+Declare the number of rows and columns, e.g., rows = 3 and cols = 4.
+Use the syntax: matrix = [[0] * cols for _ in range(rows)].
+This creates a 3x4 matrix filled with zeros.
+It ensures that each row is a distinct list, avoiding reference issues.
+
+Using Nested Loops (Explicit Initialization):
+Initialize an empty list for the matrix.
+Loop through the number of rows, appending a list of size cols filled with zeros for each iteration.
+This approach is more explicit but functionally equivalent to list comprehension.
+
+Using numpy (Optional, for Advanced Use Cases):
+Import numpy using import numpy as np.
+Use np.zeros((3, 4), dtype=int) to create a 3x4 matrix filled with zeros.
+This is efficient for numerical tasks but requires importing a library.
+
+Common Pitfall to Avoid:
+
+If you use matrix = [[0] * cols] * rows, Python creates shallow copies of the same row.
+Modifying one row will also modify all the others, which may lead to unexpected behavior.
+
+
